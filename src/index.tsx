@@ -8,6 +8,7 @@ import HomePage from "./pages/home-page";
 import PrivateKeyToPublicKey from "./pages/private-key-to-public-key";
 import SeedPhraseToPrivateKey from "./pages/seed-phrase-to-private-key";
 import GweiCalculator from "./pages/gwei-calculator";
+import Keccak256Calculator from "./pages/keccak256-calculator";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/gwei-calculator",
         element: <GweiCalculator />,
+      },
+      {
+        path: "/keccak256-calculator",
+        element: <Keccak256Calculator />,
       },
     ],
   },
