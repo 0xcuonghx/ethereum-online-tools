@@ -6,6 +6,7 @@ import ErrorPage from "./pages/error-page";
 import RootPage from "./pages/root-page";
 import HomePage from "./pages/home-page";
 import PrivateKeyToPublicKey from "./pages/private-key-to-public-key";
+import SeedPhraseToPrivateKey from "./pages/seed-phrase-to-private-key";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/private-key-to-public-key",
         element: <PrivateKeyToPublicKey />,
+      },
+      {
+        path: "/seed-phrase-to-private-key",
+        element: <SeedPhraseToPrivateKey />,
       },
     ],
   },

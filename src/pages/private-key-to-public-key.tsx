@@ -8,7 +8,6 @@ type FieldType = {
 
 const PrivateKeyToPublicKey = () => {
   const [publicKey, setPublicKey] = useState("");
-  const form = Form.useFormInstance();
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     const privateKey = values.privateKey;
@@ -20,7 +19,6 @@ const PrivateKeyToPublicKey = () => {
     <div>
       <Typography.Title>Private Key to Public Key</Typography.Title>
       <Form
-        form={form}
         onFinish={onFinish}
         autoComplete="off"
         style={{ maxWidth: 700 }}
