@@ -41,11 +41,16 @@ const PrivateKeyToPublicKey = () => {
             }),
           ]}
         >
-          <Input />
+          <Input placeholder="Please input your private key!" />
         </Form.Item>
 
         <Form.Item<FieldType> label="Public Key" style={{ width: 700 }}>
-          <Input disabled value={publicKey} />
+          <Input.TextArea
+            rows={3}
+            disabled
+            value={publicKey}
+            placeholder="0x"
+          />
         </Form.Item>
 
         <Form.Item>

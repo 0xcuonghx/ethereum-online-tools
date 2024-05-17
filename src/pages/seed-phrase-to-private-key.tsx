@@ -58,7 +58,7 @@ const SeedPhraseToPrivateKey = () => {
             }),
           ]}
         >
-          <Input />
+          <Input placeholder="Please input your seed phrase!" />
         </Form.Item>
         <Form.Item<FieldType>
           label={`Index (derivation path: m/44'/60'/0'/0/${Number(index)})`}
@@ -73,10 +73,10 @@ const SeedPhraseToPrivateKey = () => {
           <Input type="number" />
         </Form.Item>
         <Form.Item<FieldType> label="Private Key" style={{ width: 700 }}>
-          <Input disabled value={privateKey} />
+          <Input.TextArea disabled value={privateKey} placeholder="0x" />
         </Form.Item>
         <Form.Item<FieldType> label="Public Key" style={{ width: 700 }}>
-          <Input disabled value={publicKey} />
+          <Input.TextArea disabled value={publicKey} placeholder="0x" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">

@@ -21,6 +21,9 @@ const HomePage = () => {
     {
       title: "Keccak256 Calculator",
     },
+    {
+      title: "String To Bytes32",
+    },
   ];
 
   const handleChooseTool = (title: string) => {

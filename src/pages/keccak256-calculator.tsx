@@ -41,11 +41,11 @@ const Keccak256Calculator = () => {
           name="input"
           rules={[{ required: true, message: "Please input your input!" }]}
         >
-          <Input.TextArea rows={10} />
+          <Input.TextArea rows={10} placeholder="Please input your input!" />
         </Form.Item>
 
         <Form.Item<FieldType> label="Output" style={{ width: 700 }}>
-          <Input disabled value={output} />
+          <Input disabled value={output} placeholder="0x" />
         </Form.Item>
 
         <Form.Item<FieldType>
@@ -58,7 +58,7 @@ const Keccak256Calculator = () => {
             }")) - 1)) &
             ~bytes32(uint256(0xff))`}
           </Typography.Text>
-          <Input disabled value={storageLocation} />
+          <Input disabled value={storageLocation} placeholder="0x" />
         </Form.Item>
 
         <Form.Item>
