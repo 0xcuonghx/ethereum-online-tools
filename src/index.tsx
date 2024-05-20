@@ -10,6 +10,7 @@ import SeedPhraseToPrivateKey from "./pages/seed-phrase-to-private-key";
 import GweiCalculator from "./pages/gwei-calculator";
 import Keccak256Calculator from "./pages/keccak256-calculator";
 import StringToBytes32 from "./pages/string-to-bytes32";
+import NpmPackages from "./pages/npm-packages";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/string-to-bytes32",
         element: <StringToBytes32 />,
+      },
+      {
+        path: "/npm-packages",
+        element: <NpmPackages />,
       },
     ],
   },

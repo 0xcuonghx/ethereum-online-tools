@@ -5,3 +5,4 @@
 - [x] Gwei Calculator
 - [x] Keccak256 Calculator
   - [x] Support ERC-7201 Storage Location
+- [x] String to Bytes32 converter
