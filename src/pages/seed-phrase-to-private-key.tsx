@@ -1,4 +1,4 @@
-import { Button, Form, FormProps, Input, Typography } from "antd";
+import { Button, Col, Form, FormProps, Input, Row, Typography } from "antd";
 import { ethers } from "ethers";
 import React, { useState } from "react";
 
@@ -27,6 +27,14 @@ const SeedPhraseToPrivateKey = () => {
 
   const index = Form.useWatch("index", form);
 
+  const onGenerateSeedPhase = () => {
+    const mnemonic = ethers.Mnemonic.fromEntropy(ethers.randomBytes(16));
+    form.setFieldValue("seedPhrase", mnemonic.phrase);
+    form.setFieldValue("index", 0);
+    setPrivateKey("");
+    setPublicKey("");
+  };
+
   return (
     <div>
       <Typography.Title>Seed Phrase to Private Key</Typography.Title>
@@ -38,28 +46,43 @@ const SeedPhraseToPrivateKey = () => {
         layout="vertical"
         initialValues={{ index: 0 }}
       >
-        <Form.Item<FieldType>
-          label="Seed Phrase"
-          name="seedPhrase"
-          rules={[
-            {
-              required: true,
-              message: "Please input your seed phrase!",
-            },
-            () => ({
-              validator(_, value) {
-                try {
-                  ethers.Wallet.fromPhrase(value);
-                  return Promise.resolve();
-                } catch (error) {
-                  return Promise.reject(new Error("The seed phrase invalid"));
-                }
-              },
-            }),
-          ]}
-        >
-          <Input placeholder="Please input your seed phrase!" />
-        </Form.Item>
+        <Row gutter={16}>
+          <Col span={20}>
+            <Form.Item<FieldType>
+              label="Seed Phrase"
+              name="seedPhrase"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your seed phrase!",
+                },
+                () => ({
+                  validator(_, value) {
+                    try {
+                      ethers.Wallet.fromPhrase(value);
+                      return Promise.resolve();
+                    } catch (error) {
+                      return Promise.reject(
+                        new Error("The seed phrase invalid")
+                      );
+                    }
+                  },
+                }),
+              ]}
+            >
+              <Input placeholder="Please input your seed phrase!" />
+            </Form.Item>
+          </Col>
+          <Col>
+            <Button
+              style={{ marginTop: 30 }}
+              type="primary"
+              onClick={onGenerateSeedPhase}
+            >
+              Generate
+            </Button>
+          </Col>
+        </Row>
         <Form.Item<FieldType>
           label={`Index (derivation path: m/44'/60'/0'/0/${Number(index)})`}
           name="index"
